@@ -4,11 +4,9 @@ services:
     image: php:8.0-alpine
     volumes:
       - ./:/app
-      - ./docker/php.ini:/usr/local/etc/php/php.ini
     working_dir: /app
   composer:
     image: composer
     volumes:
       - ./:/app
-      - ./docker/php.ini:/usr/local/etc/php/php.ini
     working_dir: /app
