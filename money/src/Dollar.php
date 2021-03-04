@@ -6,4 +6,7 @@ namespace Money;
 
 class Dollar
 {
+    public function __construct(int $amount)
+    {
+    }
 }
