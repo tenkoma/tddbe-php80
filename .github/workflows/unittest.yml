@@ -1,0 +1,16 @@
+name: Unit Test
+on: [push]
+jobs:
+  test:
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Check PHP Version
+        run: php --version
+      - name: Check Composer Version
+        run: composer --version
+      - name: install packages
+        run: composer --working-dir=money/ install
+      - name: run tests
+        run: money/vendor/bin/phpunit --configuration=money/phpunit.xml.dist
