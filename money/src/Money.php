@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Money;
 
-abstract class Money
+class Money
 {
     protected int $amount;
     protected string $currency;
@@ -15,22 +15,25 @@ abstract class Money
         $this->currency = $currency;
     }
 
-    abstract public function times(int $multiplier): self;
-
     public static function dollar(int $amount): Money
     {
-        return new Dollar($amount, "USD");
+        return new Money($amount, "USD");
     }
 
     public static function franc(int $amount): Money
     {
-        return new Franc($amount, "CHF");
+        return new Money($amount, "CHF");
+    }
+
+    public function times(int $multiplier): Money
+    {
+        return new Money($this->amount * $multiplier, $this->currency);
     }
 
     public function equals(self $that): bool
     {
         return $this->amount === $that->amount
-            && $this::class === $that::class;
+            && $this->currency() === $that->currency();
     }
 
     public function currency(): string
