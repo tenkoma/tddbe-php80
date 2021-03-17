@@ -7,6 +7,7 @@ namespace Money;
 abstract class Money
 {
     protected int $amount;
+    protected string $currency;
 
     abstract public function times(int $multiplier): self;
 
@@ -26,5 +27,8 @@ abstract class Money
             && $this::class === $that::class;
     }
 
-    abstract public function currency(): string;
+    public function currency(): string
+    {
+        return $this->currency;
+    }
 }
