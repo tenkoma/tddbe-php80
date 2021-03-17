@@ -25,4 +25,6 @@ abstract class Money
         return $this->amount === $that->amount
             && $this::class === $that::class;
     }
+
+    abstract public function currency(): string;
 }
