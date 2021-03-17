@@ -6,4 +6,5 @@ namespace Money;
 
 class Money
 {
+    protected int $amount;
 }
