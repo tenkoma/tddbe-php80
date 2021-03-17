@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Money;
 
-abstract class Money
+class Money
 {
     protected int $amount;
     protected string $currency;
@@ -14,8 +14,6 @@ abstract class Money
         $this->amount = $amount;
         $this->currency = $currency;
     }
-
-    abstract public function times(int $multiplier): self;
 
     public static function dollar(int $amount): Money
     {
@@ -30,7 +28,7 @@ abstract class Money
     public function equals(self $that): bool
     {
         return $this->amount === $that->amount
-            && $this::class === $that::class;
+            && $this->currency() === $that->currency();
     }
 
     public function currency(): string
