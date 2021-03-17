@@ -15,6 +15,11 @@ abstract class Money
         return new Dollar($amount);
     }
 
+    public static function franc(int $amount): Money
+    {
+        return new Franc($amount);
+    }
+
     public function equals(self $that): bool
     {
         return $this->amount === $that->amount
