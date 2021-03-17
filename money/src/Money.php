@@ -8,10 +8,9 @@ class Money
 {
     protected int $amount;
 
-    public static function dollar(int $amount): Dollar
+    public static function dollar(int $amount): Money
     {
         return new Dollar($amount);
-
     }
 
     public function equals(self $that): bool
